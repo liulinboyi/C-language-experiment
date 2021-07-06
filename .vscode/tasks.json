@@ -1,26 +1,44 @@
 {
   "version": "2.0.0",
-  "command": "gcc",
-  "type": "shell",
-  "presentation": {
-    "echo": true,
-    "reveal": "always",
-    "focus": false,
-    "panel": "shared",
-    "showReuseMessage": true,
-    "clear": false
-  },
-  "args": ["-Wall","-m32","-g", "${file}", "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe"],
-  "problemMatcher": {
-    "owner": "cpp",
-    "fileLocation": ["relative", "${workspaceRoot}"],
-    "pattern": {
-      "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-      "file": 1,
-      "line": 2,
-      "column": 3,
-      "severity": 4,
-      "message": 5
-    }
-  }
+  "tasks": [{ // 编译
+    "label": "gcc",
+    "command": "gcc",
+    "type": "shell",
+    "presentation": {
+      "echo": true,
+      "reveal": "always",
+      "focus": false,
+      "panel": "shared",
+      "showReuseMessage": true,
+      "clear": false
+    },
+    "args": ["-Wall", "-m32", "-W", "-Wstrict-prototypes", "-Wmissing-prototypes", "-g", "${file}", "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe"],
+    "problemMatcher": {
+      "owner": "cpp",
+      "fileLocation": ["relative", "${workspaceRoot}"],
+      "pattern": {
+        "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+        "file": 1,
+        "line": 2,
+        "column": 3,
+        "severity": 4,
+        "message": 5
+      }
+    },
+    "dependsOn": ["del"]
+  }, { // 删除原来的编译产物
+    "label": "del",
+    "command": "if",
+    "type": "shell",
+    "presentation": {
+      "echo": true,
+      "reveal": "always",
+      "focus": false,
+      "panel": "shared",
+      "showReuseMessage": true,
+      "clear": false
+    },
+    "args": ["(Test-Path", "${fileDirname}\\${fileBasenameNoExtension}.exe", ")", "{rm", "${fileDirname}\\${fileBasenameNoExtension}.exe", ";echo", "del success", ";", "}"],
+  }],
+
 }
