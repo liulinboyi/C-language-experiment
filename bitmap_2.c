@@ -32,7 +32,7 @@ struct bitmap
 {
     uint32_t btmp_bytes_len;
     /* 在遍历位图时,整体上以字节为单位,细节上是以位为单位,所以此处位图的指针必须是单字节 */
-    uint8_t *bits;
+    uint8_t *bits; // *指针就是内存地址，这里声明的意思是指针的类型是uint8_t，仍然是内存地址。不同指针类型，在地址处取值时(*指针)的方法和长度不同而已
 };
 
 void SetBit(char *p, int posi);
@@ -104,11 +104,11 @@ void BitMapSortDemo(void)
         SetBit(pBuffer, num[i]);
     }
 
-    uint8_t u = (uint8_t)*pBuffer;
+    uint8_t *u = (uint8_t *)pBuffer;
 
     struct bitmap map = {
         1,
-        &u};
+        u};
 
     bool r = bitmap_scan_test(&map, 6);
     printf("%d\n", r);
@@ -217,7 +217,8 @@ int main(int argc, char const *argv[])
 {
     (void) argc;
     (void) argv;
-    BitMapSortDemo1();
+    // BitMapSortDemo1();
+    BitMapSortDemo();
     system("pause");
     return 0;
 }
