@@ -71,7 +71,7 @@ void printbit(char *pBuffer)
     printf("byte:");
     for (int i = 0; i < 8; i++)
     {
-        printf("%d", (res & 0x01 << count) == 0 ? 0 : 1);
+        printf("%d", (res & (0x01 << count)) == 0 ? 0 : 1);
         count--;
     }
     printf("\n");
