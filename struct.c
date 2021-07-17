@@ -20,6 +20,22 @@ struct student generate(char name[], int age, int gender)
         ming,
         age,
         gender};
+    /*
+    访问结构体成员的两种方法是“结构体变量.成员”和“结构体指针变量->成员”。
+    它们的访问原理是“结构体变量的地址+成员的偏移量”，这种寻址方式相当于
+    “基址+变址”，其中“结构体变量的地址”相当于基址，“成员的偏移量”相当于
+    变址，可以近似认为访问结构体成员的方法等效于“基址->变址”，结构体成员
+    的地址等于“&（基址->变址）”。
+
+    倘若令基址的值等于0，&(gender)不就等于偏移量n了吗。
+    */
+    //直接获得结构变量的偏移量
+    int offset = (int)&(((struct student *)0)->name);
+    printf("name,offset:%d\n", offset);
+    offset = (int)&(((struct student *)0)->age);
+    printf("age,offset:%d\n", offset);
+    offset = (int)&(((struct student *)0)->gender);
+    printf("gender,offset:%d\n", offset);
 
     printf("%s %d\n", name, sizeof(xiaoming));
     printf("%d\n", *(unsigned int *)((unsigned int)&xiaoming + 4)); // 骚操作，拆解
