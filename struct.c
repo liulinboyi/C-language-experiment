@@ -51,6 +51,7 @@ struct student generate(char name[], int age, int gender)
 void foo(void)
 {
     // char n[] = "哈哈";
+    printf("sizeof struct student %d\n",sizeof(struct student));
     generate("xiaoming", 16, 1);
     generate("xiaoli", 18, 1);
     generate("hahahahahahhahahahahahahahahahahahahahahhahaha", 20, 1);
