@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 //"C:/msys64/mingw64/include/*"
-                "C:/msys64/mingw32/include/*"
+                "C:/msys64/mingw32/include/*",
+                "${workspaceFolder}/"
             ],
             "defines": [
                 "_DEBUG",
@@ -13,7 +14,7 @@
                 "_UNICODE"
             ],
             // "compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
-            "compilerPath": "C:/msys64/mingw32/bin/gcc.exe",
+            "compilerPath": "C:/msys64/mingw32/bin/g++.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "gcc-x64"

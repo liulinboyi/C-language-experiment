@@ -1,8 +1,8 @@
 {
   "version": "2.0.0",
   "tasks": [{ // 编译
-    "label": "gcc",
-    "command": "gcc",
+    "label": "g++",
+    "command": "g++",
     "type": "shell",
     "presentation": {
       "echo": true,
@@ -12,7 +12,8 @@
       "showReuseMessage": true,
       "clear": false
     },
-    "args": ["-Wall", "-m32", "-W", "-Wstrict-prototypes", "-Wmissing-prototypes", "-g", "${file}", "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe"],
+    "args": ["-Wall", "-m32", "-W", "-g", "${file}", "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe"],
+    // "args": ["-Wall", "-m32", "-W", "-Wstrict-prototypes", "-Wmissing-prototypes", "-g", "${file}", "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe"],
     "problemMatcher": {
       "owner": "cpp",
       "fileLocation": ["relative", "${workspaceRoot}"],

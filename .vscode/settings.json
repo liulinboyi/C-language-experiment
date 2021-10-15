@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript",
+        "*.ttss": "css",
+        "typeinfo": "c",
+        "stdlib.h": "c",
+        "processthreadsapi.h": "c",
+        "pthread.h": "c",
+        "cson.h": "c",
+        "log.h": "c",
+        "cjson.h": "c"
+    }
+}
